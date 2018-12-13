@@ -60,6 +60,8 @@ function onConnect() {
     client.subscribe(SUB_TOPIC);
     client.send(MESSAGES.BIRTH);
     document.getElementById("clientStatus").innerText = "connected";
+    document.getElementById("connectionDetails").classList.remove("border-danger");
+    document.getElementById("connectionDetails").classList.add("border-success");
 }
 
 // called when the client loses its connection
@@ -68,6 +70,8 @@ function onConnectionLost(responseObject) {
         console.log("onConnectionLost:"+responseObject.errorMessage);
     }
     document.getElementById("clientStatus").innerText = "disconnected";
+    document.getElementById("connectionDetails").classList.add("border-danger");
+    document.getElementById("connectionDetails").classList.remove("border-success");
 }
 
 // called when a message arrives
