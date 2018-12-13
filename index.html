@@ -5,15 +5,27 @@
     <title>Example Form</title>
 
     <script src="./lib/paho-mqtt-min.js"></script>
+    <!-- You can put your config variables here: -->
+    <!--
+    <script>
+        let submitTopic = "mqtt-webform/submissions";
+        let statusTopic = "mqtt-webform/status";
+        let lastWillMessage = "offline";
+        let birthMessage = "online";
+        let websocketPort = 9001;
+        let brokerHost = "localhost";
+        let clientID = "mqtt-webform";
+    </script>    -->
+
 </head>
 <body>
 <div class="container" id="content">
 
 
-<p id="connectionDetails">
-    MQTT Client connection to <span id="brokerName">host</span>:<span id="brokerPort">0000</span> status:
-    <span id="clientStatus">disconnected</span>.
-</p>
+    <p id="connectionDetails">
+        MQTT Client connection to <span id="brokerName">host</span>:<span id="brokerPort">0000</span> status:
+        <span id="clientStatus">disconnected</span>.
+    </p>
 </div>
 
 <script src="./main.js"></script>
