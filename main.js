@@ -1,6 +1,4 @@
 /*
-* Provide a connection object
-* Show status of connection (it should try to connect when loaded)
 * Format form to JSON to publish
 * Publish JSON to topic, use QOS 1
 * ?? Verify that publish happened before clearing + success message
@@ -19,6 +17,9 @@ let myDeathMessage = new Paho.Message(DEATH_MESSAGE);
 myDeathMessage.destinationName = BIRTH_DEATH_TOPIC;
 let myBirthMessage = new Paho.Message(BIRTH_MESSAGE);
 myBirthMessage.destinationName = BIRTH_DEATH_TOPIC;
+
+document.getElementById("brokerName").innerText = MQTT_BROKER;
+document.getElementById("brokerPort").innerText = ""+WS_PORT;
 
 const MESSAGES = {
     BIRTH: myBirthMessage,
@@ -42,6 +43,7 @@ function onConnect() {
     console.log("onConnect");
     client.subscribe(SUB_TOPIC);
     client.send(MESSAGES.BIRTH);
+    document.getElementById("clientStatus").innerText = "connected";
 }
 
 // called when the client loses its connection
@@ -49,6 +51,7 @@ function onConnectionLost(responseObject) {
     if (responseObject.errorCode !== 0) {
         console.log("onConnectionLost:"+responseObject.errorMessage);
     }
+    document.getElementById("clientStatus").innerText = "disconnected";
 }
 
 // called when a message arrives
