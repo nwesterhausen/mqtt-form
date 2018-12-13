@@ -37,13 +37,18 @@ client.onMessageArrived = onMessageArrived;
 client.connect({onSuccess:onConnect,willMessage:MESSAGES.DEATH});
 
 
-function sendFormData(form) {
-    let data = {
-        name: document.getElementById("name").value
-    };
+function sendFormData() {
+    let data = {};
+    // Just grab all the input data.
+    let inputs = document.getElementsByTagName("input");
+    for (let el of inputs) {
+        if (el.id.length > 0)
+            data[el.id] = el.value;
+    }
+    // Format the message
     let dataMessage = new Paho.Message(JSON.stringify(data));
     dataMessage.destinationName = SUB_TOPIC;
-
+    // Send the message
     client.send(dataMessage);
 }
 
