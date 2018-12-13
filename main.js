@@ -42,8 +42,19 @@ function sendFormData() {
     // Just grab all the input data.
     let inputs = document.getElementsByTagName("input");
     for (let el of inputs) {
-        if (el.id.length > 0)
+        if (el.id.length > 0 && el.value !== "")
             data[el.id] = el.value;
+    }
+    // Don't forget <select>
+    inputs = document.getElementsByTagName("select");
+    for (let el of inputs) {
+        let chosen = [];
+        console.log(el.children);
+        for(let i=0;i<el.children.length;i++) {
+            if (el.children[i].selected)
+                chosen.push(el.children[i].value);
+        }
+        data[el.id] = chosen.join(",");
     }
     // Format the message
     let dataMessage = new Paho.Message(JSON.stringify(data));
