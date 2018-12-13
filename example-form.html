@@ -112,15 +112,17 @@
             <button onclick="sendFormData()" class="btn btn-primary">Send</button>
         </fieldset>
     </form>
-    <div class="card border-danger mt-3" id="connectionDetails">
-        <div class="card-header">Connection Details</div>
-        <div class="card-body">
-            <p class="card-text">MQTT Client connection to <span id="brokerName">host</span>:<span id="brokerPort">0000</span> status:
-                <span id="clientStatus">disconnected</span>.</p>
-        </div>
-    </div>
 </div>
-
+<div class="container">
+<div class="card border-danger mt-3" id="connectionDetails">
+    <div class="card-header">Connection Details</div>
+    <div class="card-body">
+        <p class="card-text">MQTT Client connection to <span id="brokerName">host</span>:<span id="brokerPort">0000</span> status:
+            <span id="clientStatus">disconnected. If this status never changes, it's because the connection can'e be made.
+            You should check the javascript console (F12) to see if there are any errors, and make sure your mqtt broker
+            is available!</span>.</p>
+    </div>
+</div></div>
 <script src="./main.js"></script>
 </body>
 </html>

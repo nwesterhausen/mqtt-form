@@ -20,6 +20,7 @@ myBirthMessage.destinationName = BIRTH_DEATH_TOPIC;
 
 document.getElementById("brokerName").innerText = MQTT_BROKER;
 document.getElementById("brokerPort").innerText = ""+WS_PORT;
+document.getElementById("content").style.display = "none";
 
 const MESSAGES = {
     BIRTH: myBirthMessage,
@@ -73,6 +74,7 @@ function onConnect() {
     document.getElementById("clientStatus").innerText = "connected";
     document.getElementById("connectionDetails").classList.remove("border-danger");
     document.getElementById("connectionDetails").classList.add("border-success");
+    document.getElementById("content").style.display = "block";
 }
 
 // called when the client loses its connection
