@@ -7,8 +7,8 @@
 */
 
 // DEFINE CLIENT VARIABLES
-const SUB_TOPIC = typeof submitTopic !== "undefined" ? submitTopic : "mqtt-webform/status";
-const BIRTH_DEATH_TOPIC = typeof statusTopic !== "undefined" ? statusTopic : "mqtt-webform/submissions";
+const SUB_TOPIC = typeof submitTopic !== "undefined" ? submitTopic : "mqtt-webform/submissions";
+const BIRTH_DEATH_TOPIC = typeof statusTopic !== "undefined" ? statusTopic : "mqtt-webform/status";
 const DEATH_MESSAGE = typeof lastWillMessage !== "undefined" ? lastWillMessage : "web-form offline";
 const BIRTH_MESSAGE = typeof birthMessage !== "undefined" ? birthMessage : "web-form online";
 const WS_PORT = typeof websocketPort !== "undefined" ? websocketPort : 9001;
