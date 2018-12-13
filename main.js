@@ -37,6 +37,17 @@ client.onMessageArrived = onMessageArrived;
 client.connect({onSuccess:onConnect,willMessage:MESSAGES.DEATH});
 
 
+function sendFormData(form) {
+    let data = {
+        name: document.getElementById("name").value
+    };
+    let dataMessage = new Paho.Message(JSON.stringify(data));
+    dataMessage.destinationName = SUB_TOPIC;
+
+    client.send(dataMessage);
+}
+
+//** CLIENT FUNCTIONS **////
 // called when the client connects
 function onConnect() {
     // Once a connection has been made, make a subscription and send a message.

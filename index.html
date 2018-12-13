@@ -20,7 +20,11 @@
 </head>
 <body>
 <div class="container" id="content">
-
+    <form onsubmit="return false">
+        <label for="name">Name:</label>
+        <input id="name" type="text">
+        <button onclick="sendFormData()">Send</button>
+    </form>
 
     <p id="connectionDetails">
         MQTT Client connection to <span id="brokerName">host</span>:<span id="brokerPort">0000</span> status:
